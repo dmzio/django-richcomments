@@ -3,14 +3,14 @@
 </span>
 
 <script type="text/javascript">
-var options = { 
+var options{{ selector_id }} = {
     success: function(response_text, status_text, xhr, form_elem) {
         // reload comments
         $('#commentlist_{{ selector_id }}').load("{% url 'render_comment_list' content_type object_pk %}" , function(responseText, textStatus, XMLHttpRequest) {
             // fill span with response
             $('#{{ selector_id }}').html(response_text);
             // rebind form
-            $('#{{ selector_id }} form').ajaxForm(options);
+            $('#{{ selector_id }} form').ajaxForm(options{{ selector_id }});
         });
     }, 
     beforeSubmit: function() {
@@ -22,6 +22,6 @@ var options = {
 };
 
 $(function() {
-    $('#{{ selector_id }} form').ajaxForm(options);
+    $('#{{ selector_id }} form').ajaxForm(options{{ selector_id }});
 });
 </script>
