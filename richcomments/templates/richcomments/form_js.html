@@ -6,7 +6,7 @@
 var options = { 
     success: function(response_text, status_text, xhr, form_elem) {
         // reload comments
-        $('#commentlist_{{ selector_id }}').load("{% url render_comment_list content_type object_pk %}" , function(responseText, textStatus, XMLHttpRequest) {
+        $('#commentlist_{{ selector_id }}').load("{% url 'render_comment_list' content_type object_pk %}" , function(responseText, textStatus, XMLHttpRequest) {
             // fill span with response
             $('#{{ selector_id }}').html(response_text);
             // rebind form
